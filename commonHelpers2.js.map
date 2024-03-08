@@ -1,0 +1,1 @@
+{"version":3,"file":"commonHelpers2.js","sources":["../src/js/2-form.js"],"sourcesContent":["const formEl = document.querySelector('.feedback-form');\nconst LS_KEY = 'feedback-form-state';\nconst email = formEl.elements.email;\nconst message = formEl.elements.message;"],"names":["formEl"],"mappings":"oDAAA,MAAMA,EAAS,SAAS,cAAc,gBAAgB,EAExCA,EAAO,SAAS,MACdA,EAAO,SAAS"}
