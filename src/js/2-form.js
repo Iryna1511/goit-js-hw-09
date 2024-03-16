@@ -14,9 +14,10 @@ function handleInput(event) {
 
 function loadFormState(key) {
   const parsedInfo = JSON.parse(localStorage.getItem(key));
-  // console.log(parsedInfo);
-  emailInp.value = parsedInfo.email ?? '';
-  messageInp.value = parsedInfo.message ?? '';
+  if (parsedInfo !== null) {
+    emailInp.value = parsedInfo.email;
+    messageInp.value = parsedInfo.message;
+  }
 }
 loadFormState(LS_KEY);
 
@@ -31,6 +32,6 @@ function handleSubmit(event) {
   } else {
     localStorage.removeItem(LS_KEY);
     formEl.reset();
-    console.log(user);;
+    console.log(user);
   }
 }
