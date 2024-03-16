@@ -13,24 +13,24 @@ function handleInput(event) {
 }
 
 function loadFormState(key) {
-    const parsedInfo = JSON.parse(localStorage.getItem(key));
-    console.log(parsedInfo);
-//   emailInp.value = JSON.parse(localStorage.getItem(LS_KEY.email)) ?? '';
-//   messageInp.value = JSON.parse(localStorage.getItem(LS_KEY.message)) ?? '';
+  const parsedInfo = JSON.parse(localStorage.getItem(key));
+  // console.log(parsedInfo);
+  emailInp.value = parsedInfo.email ?? '';
+  messageInp.value = parsedInfo.message ?? '';
 }
 loadFormState(LS_KEY);
 
 formEl.addEventListener('submit', handleSubmit);
 function handleSubmit(event) {
+  event.preventDefault();
+  user.email = emailInp.value.trim();
+  user.message = messageInp.value.trim();
   if (user.email === '' || user.message === '') {
     alert('All form fields must be filled in');
     return;
   } else {
-    event.preventDefault();
-    user.email = emailInp.value.trim();
-    user.message = messageInp.value.trim();
     localStorage.removeItem(LS_KEY);
-      formEl.reset();
-      return user;
+    formEl.reset();
+    console.log(user);;
   }
 }
